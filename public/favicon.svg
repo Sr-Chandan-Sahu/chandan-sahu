@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#161726"/>
+      <stop offset="100%" stop-color="#0B0C12"/>
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="borderGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#858AE3"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+
+    <!-- Face Gradient -->
+    <linearGradient id="faceGrad" x1="22" y1="14" x2="42" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFDFBA"/>
+      <stop offset="100%" stop-color="#F6A87A"/>
+    </linearGradient>
+
+    <!-- Hair Gradient -->
+    <linearGradient id="hairGrad" x1="18" y1="8" x2="46" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#858AE3"/>
+    </linearGradient>
+
+    <!-- Hoodie / Shoulders Gradient -->
+    <linearGradient id="hoodieGrad" x1="14" y1="36" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base with Cyber Glow Border -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="2.5"/>
+
+  <!-- Developer Person Figure -->
+  <g>
+    <!-- Hair Base Behind -->
+    <path d="M21 24C21 15 25.5 10 32 10C38.5 10 43 15 43 24V26H21V24Z" fill="url(#hairGrad)"/>
+
+    <!-- Face -->
+    <circle cx="32" cy="24" r="10.5" fill="url(#faceGrad)"/>
+
+    <!-- Front Hair Tuft -->
+    <path d="M21 21C25 16 32 14.5 43 20.5C41 16 37 10.5 32 10.5C26 10.5 22 15 21 21Z" fill="url(#hairGrad)"/>
+
+    <!-- Neon Coder Glasses -->
+    <rect x="23" y="21" width="7" height="5.5" rx="1.8" stroke="#00F5D4" stroke-width="1.8" fill="rgba(0, 245, 212, 0.25)"/>
+    <rect x="34" y="21" width="7" height="5.5" rx="1.8" stroke="#00F5D4" stroke-width="1.8" fill="rgba(0, 245, 212, 0.25)"/>
+    <line x1="30" y1="23.8" x2="34" y2="23.8" stroke="#00F5D4" stroke-width="1.8"/>
+
+    <!-- Developer Hoodie & Shoulders -->
+    <path d="M15 54C15 42 22 36.5 32 36.5C42 36.5 49 42 49 54H15Z" fill="url(#hoodieGrad)"/>
+
+    <!-- Hoodie Neckline & Drawstrings -->
+    <path d="M29 36.5L32 43L35 36.5" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="32" y1="43" x2="32" y2="54" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/>
+
+    <!-- Active Status Online Dot (Emerald Green Glow) -->
+    <circle cx="47" cy="47" r="4.5" fill="#10B981" stroke="#0B0C12" stroke-width="2"/>
+  </g>
+</svg>
