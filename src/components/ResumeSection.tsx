@@ -198,7 +198,7 @@ export default function ResumeSection() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span>Download Resume / CV</span>
+            <span>Download Resume</span>
           </a>
         </div>
 
