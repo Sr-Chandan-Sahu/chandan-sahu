@@ -161,71 +161,8 @@ const educationData: TimelineItem[] = [
 ];
 
 export default function ResumeSection() {
-  const handleDownloadCV = () => {
-    const printWindow = window.open('', '_blank');
-    if (printWindow) {
-      printWindow.document.write(`
-        <html>
-          <head>
-            <title>Chandan Sahu - Resume</title>
-            <style>
-              body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #222; padding: 40px; max-width: 800px; margin: 0 auto; }
-              h1 { color: #1e1e2f; margin-bottom: 4px; }
-              .title { font-size: 1.1em; color: #555; margin-bottom: 20px; }
-              h2 { color: #5e62a1; border-bottom: 2px solid #5e62a1; padding-bottom: 4px; margin-top: 24px; }
-              .item { margin-bottom: 16px; }
-              .header { display: flex; justify-content: space-between; font-weight: bold; }
-              .sub { color: #666; font-style: italic; }
-            </style>
-          </head>
-          <body>
-            <h1>Chandan Sahu</h1>
-            <div class="title">Software Engineer & Full-Stack Developer | chandansahu9054@gmail.com | Hyderabad, India</div>
-            <h2>Professional Experience</h2>
-            <div class="item">
-              <div class="header"><span>Software Engineer</span><span>Apr 2026 — Present</span></div>
-              <div class="sub">Sune Solutions · Full-time · Hyderabad, Telangana, India (On-site)</div>
-              <p>Spearheading the design and delivery of responsive, secure full-stack web and enterprise mobile solutions. Collaborating with cross-functional teams to build high-performance microservices and intuitive user workflows.</p>
-            </div>
-            <div class="item">
-              <div class="header"><span>Associate Software Engineer</span><span>Feb 2025 — Apr 2026</span></div>
-              <div class="sub">Sune Solutions · Full-time · Hyderabad, Telangana, India (On-site)</div>
-              <p>Contributed to core product features, backend service reliability, containerized deployments, and network optimizations across production environments.</p>
-            </div>
-            <div class="item">
-              <div class="header"><span>Associate Software Engineer</span><span>Oct 2024 — Jan 2025</span></div>
-              <div class="sub">STIC SOFT · Full-time · Hyderabad, Telangana, India (On-site)</div>
-              <p>Developed modern single-page applications, interactive data dashboards, and reusable design systems utilizing React, TypeScript, Redux Toolkit, and Tailwind CSS.</p>
-            </div>
-            <div class="item">
-              <div class="header"><span>Software Developer</span><span>Jan 2024 — Oct 2024</span></div>
-              <div class="sub">KreativeTimebox · Full-time · Hyderabad, Telangana, India (Remote)</div>
-              <p>Engineered robust full-stack features, responsive interactive UI modules, and dynamic state workflows across client portals.</p>
-            </div>
-            <div class="item">
-              <div class="header"><span>Intern</span><span>May 2023 — Jun 2023</span></div>
-              <div class="sub">Code Beat · Internship · Bhubaneswar, Odisha, India (On-site)</div>
-              <p>Contributed to full-stack feature development, relational database modeling with PostgreSQL/MySQL, automated unit testing, and responsive UI layout styling.</p>
-            </div>
-            <h2>Education</h2>
-            <div class="item">
-              <div class="header"><span>B.Tech in Computer Science & Engineering</span><span>2019 — 2023</span></div>
-              <div class="sub">First Class with Distinction</div>
-            </div>
-            <h2>Technical Skills</h2>
-            <p><strong>Frontend & Mobile:</strong> React JS, Next JS, React Native, Expo, TypeScript, JavaScript, Tailwind CSS</p>
-            <p><strong>Backend & Databases:</strong> Node JS, Express JS, NestJS, FastAPI, Python, PostgreSQL, MongoDB, Redis</p>
-            <p><strong>Cloud/DevOps & Tools:</strong> Docker, Jenkins, GitHub Actions, AWS, Git, System Design, DSA</p>
-          </body>
-        </html>
-      `);
-      printWindow.document.close();
-      printWindow.focus();
-      setTimeout(() => {
-        printWindow.print();
-      }, 300);
-    }
-  };
+  const resumeDriveUrl =
+    'https://drive.google.com/file/d/1UA7ehHV8f4MQxi_UeVORZBnDKvmFkvcn/view?usp=sharing';
 
   return (
     <div className="flex flex-col gap-6 w-full">
@@ -244,14 +181,16 @@ export default function ResumeSection() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <SectionTitle title="Resume & Experience" />
 
-          <button
-            onClick={handleDownloadCV}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer shadow-lg hover:shadow-indigo-500/20 active:scale-95"
+          <a
+            href={resumeDriveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer shadow-lg hover:shadow-indigo-500/20 active:scale-95 text-white"
             style={{
               backgroundColor: 'rgb(133, 138, 227)',
-              color: '#ffffff',
               border: 'none',
               fontFamily: 'Poppins, sans-serif',
+              textDecoration: 'none',
             }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -259,8 +198,8 @@ export default function ResumeSection() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            Download Resume / CV
-          </button>
+            <span>Download Resume / CV</span>
+          </a>
         </div>
 
         <p
