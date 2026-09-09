@@ -105,7 +105,7 @@ export default function App() {
           onClick={() => setIsProfileOpen(false)}
         >
           <div
-            className="w-full max-w-lg max-h-[90vh] overflow-hidden rounded-t-[28px] sm:rounded-[28px] shadow-2xl animate-in slide-in-from-bottom duration-300"
+            className="w-full max-w-md overflow-hidden rounded-t-[28px] sm:rounded-[28px] shadow-2xl animate-in slide-in-from-bottom duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             <Sidebar isMobileModal onClose={() => setIsProfileOpen(false)} />
