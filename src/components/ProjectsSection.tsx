@@ -38,7 +38,7 @@ const projectsData: Project[] = [
     metrics: ['Real-Time Telemetry', 'AI Anomaly Analysis', 'Sub-50ms Log Ingestion'],
     techStack: ['Python', 'FastAPI', 'React.js', 'PostgreSQL', 'Redis', 'Docker', 'Gemini API', 'Tailwind CSS'],
     githubUrl: 'https://github.com/Sr-Chandan-Sahu/DevPulse-AI',
-    demoUrl: 'https://chandansahu.netlify.app',
+    demoUrl: 'https://chandan-sahu.vercel.app',
   },
   {
     id: 'proj-2',
@@ -51,7 +51,7 @@ const projectsData: Project[] = [
     metrics: ['WebSockets & Socket.io', 'Redis Pub/Sub Sync', 'Multi-Cursor Presence'],
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'Socket.io', 'PostgreSQL', 'Prisma', 'Redis', 'Tailwind CSS'],
     githubUrl: 'https://github.com/Sr-Chandan-Sahu/CollabSphere',
-    demoUrl: 'https://chandansahu.netlify.app',
+    demoUrl: 'https://chandan-sahu.vercel.app',
   },
   {
     id: 'proj-3',
@@ -64,7 +64,7 @@ const projectsData: Project[] = [
     metrics: ['Full Stack MERN', 'Stripe Payment Gateway', 'JWT Auth & Role Control'],
     techStack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Redux Toolkit', 'Tailwind CSS', 'Stripe API'],
     githubUrl: 'https://github.com/Sr-Chandan-Sahu/MERN-projects',
-    demoUrl: 'https://chandansahu.netlify.app',
+    demoUrl: 'https://chandan-sahu.vercel.app',
   },
   {
     id: 'proj-4',
@@ -77,7 +77,7 @@ const projectsData: Project[] = [
     metrics: ['Zero-Downtime Releases', 'Multi-Stage Jenkins CI/CD', 'AWS EC2 & S3 Deployment'],
     techStack: ['Jenkins', 'AWS (EC2, S3, IAM)', 'Docker', 'GitHub Actions', 'Nginx', 'Linux', 'Shell Scripting'],
     githubUrl: 'https://github.com/Sr-Chandan-Sahu/CloudOps-AWS-Jenkins-CICD',
-    demoUrl: 'https://chandansahu.netlify.app',
+    demoUrl: 'https://chandan-sahu.vercel.app',
   },
   {
     id: 'proj-5',
