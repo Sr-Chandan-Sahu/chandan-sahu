@@ -156,7 +156,7 @@ const educationData: TimelineItem[] = [
     organization: 'Council of Higher Secondary Education',
     location: 'India',
     description: 'Core foundation in Mathematics, Physics, Chemistry, and Computer Science.',
-    highlights: ['First Division Honors(82%)'],
+    highlights: ['First Division Honors (82%)'],
   },
 ];
 
@@ -169,13 +169,15 @@ export default function ResumeSection() {
       {/* Resume Header & Download Banner */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -187,7 +189,7 @@ export default function ResumeSection() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer shadow-lg hover:shadow-indigo-500/20 active:scale-95 text-white"
             style={{
-              backgroundColor: 'rgb(133, 138, 227)',
+              backgroundColor: 'var(--accent-primary)',
               border: 'none',
               fontFamily: 'Poppins, sans-serif',
               textDecoration: 'none',
@@ -208,7 +210,7 @@ export default function ResumeSection() {
             fontSize: '14px',
             fontWeight: 300,
             lineHeight: '1.6em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
           }}
         >
           Comprehensive track record in software engineering, frontend state architecture, backend API design, scalable cloud deployments, and academic computer science foundations.
@@ -218,13 +220,15 @@ export default function ResumeSection() {
       {/* Professional Experience Section */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '24px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <div className="flex items-center gap-3">
@@ -233,11 +237,11 @@ export default function ResumeSection() {
               width: '36px',
               height: '36px',
               borderRadius: '10px',
-              backgroundColor: 'rgba(133, 138, 227, 0.12)',
+              backgroundColor: 'var(--accent-subtle)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'rgb(133, 138, 227)',
+              color: 'var(--accent-primary)',
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -253,8 +257,8 @@ export default function ResumeSection() {
             <div
               key={cIdx}
               style={{
-                backgroundColor: 'rgb(34, 34, 36)',
-                border: '1px solid rgb(43, 43, 44)',
+                backgroundColor: 'var(--bg-card-subtle)',
+                border: '1px solid var(--border-main)',
                 borderRadius: '20px',
                 padding: '24px',
                 display: 'flex',
@@ -262,12 +266,12 @@ export default function ResumeSection() {
                 gap: '20px',
                 transition: 'border-color 0.25s ease, transform 0.25s ease',
               }}
-              className="hover:border-[rgb(133,138,227)]/40 hover:-translate-y-0.5"
+              className="hover:border-[var(--accent-primary)]/50 hover:-translate-y-0.5"
             >
               {/* Company Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[rgb(43,43,44)]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[var(--border-main)]">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/5 border border-[rgb(55,55,60)] shrink-0 flex items-center justify-center p-1 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl overflow-hidden bg-black/5 dark:bg-white/5 border border-[var(--border-main)] shrink-0 flex items-center justify-center p-1 shadow-sm">
                     <img
                       src={companyItem.logo}
                       alt={`${companyItem.company} logo`}
@@ -281,33 +285,33 @@ export default function ResumeSection() {
                           fontFamily: 'Poppins, sans-serif',
                           fontSize: '18px',
                           fontWeight: 600,
-                          color: 'rgb(243, 243, 252)',
+                          color: 'var(--text-primary)',
                         }}
                       >
                         {companyItem.company}
                       </h4>
                       <span
                         style={{
-                          backgroundColor: 'rgba(133, 138, 227, 0.15)',
-                          border: '1px solid rgba(133, 138, 227, 0.3)',
+                          backgroundColor: 'var(--accent-subtle)',
+                          border: '1px solid var(--accent-border)',
                           borderRadius: '6px',
                           padding: '2px 8px',
                           fontSize: '11px',
                           fontWeight: 500,
-                          color: 'rgb(165, 170, 245)',
+                          color: 'var(--accent-primary)',
                           fontFamily: 'Poppins, sans-serif',
                         }}
                       >
                         {companyItem.employmentType} {companyItem.totalDuration && `· ${companyItem.totalDuration}`}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-xs text-gray-400 mt-0.5 font-light">
+                    <div className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] mt-0.5 font-light">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                         <circle cx="12" cy="10" r="3" />
                       </svg>
                       <span>
-                        {companyItem.location} &bull; <span className="text-gray-300 font-normal">{companyItem.workMode}</span>
+                        {companyItem.location} &bull; <span className="text-[var(--text-secondary)] font-normal">{companyItem.workMode}</span>
                       </span>
                     </div>
                   </div>
@@ -315,7 +319,7 @@ export default function ResumeSection() {
               </div>
 
               {/* Roles Under Company */}
-              <div className={`flex flex-col gap-6 ${companyItem.roles.length > 1 ? 'pl-3 border-l-2 border-[rgb(55,55,60)] ml-2' : ''}`}>
+              <div className={`flex flex-col gap-6 ${companyItem.roles.length > 1 ? 'pl-3 border-l-2 border-[var(--border-main)] ml-2' : ''}`}>
                 {companyItem.roles.map((role, rIdx) => (
                   <div key={rIdx} className={`relative ${companyItem.roles.length > 1 ? 'pl-5' : ''}`}>
                     {companyItem.roles.length > 1 && (
@@ -327,8 +331,8 @@ export default function ResumeSection() {
                           width: '10px',
                           height: '10px',
                           borderRadius: '50%',
-                          backgroundColor: cIdx === 0 && rIdx === 0 ? 'rgb(133, 138, 227)' : 'rgb(94, 98, 161)',
-                          boxShadow: cIdx === 0 && rIdx === 0 ? '0 0 8px rgb(133, 138, 227)' : 'none',
+                          backgroundColor: cIdx === 0 && rIdx === 0 ? 'var(--accent-primary)' : 'var(--text-muted)',
+                          boxShadow: cIdx === 0 && rIdx === 0 ? '0 0 8px var(--accent-primary)' : 'none',
                         }}
                       />
                     )}
@@ -340,7 +344,7 @@ export default function ResumeSection() {
                             fontFamily: 'Poppins, sans-serif',
                             fontSize: '16px',
                             fontWeight: 600,
-                            color: 'rgb(243, 243, 252)',
+                            color: 'var(--text-primary)',
                           }}
                         >
                           {role.title}
@@ -350,7 +354,7 @@ export default function ResumeSection() {
                             fontFamily: 'Poppins, sans-serif',
                             fontSize: '12px',
                             fontWeight: 500,
-                            color: 'rgb(133, 138, 227)',
+                            color: 'var(--accent-primary)',
                             letterSpacing: '0.02em',
                           }}
                         >
@@ -361,19 +365,19 @@ export default function ResumeSection() {
                       {/* Skills Tags */}
                       {role.skills && role.skills.length > 0 && (
                         <div className="flex items-center gap-1.5 flex-wrap my-1">
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgb(133, 138, 227)" strokeWidth="2" className="shrink-0">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" strokeWidth="2" className="shrink-0">
                             <polygon points="6 3 18 3 22 9 12 22 2 9 6 3" />
                           </svg>
                           {role.skills.map((skill, sIdx) => (
                             <span
                               key={sIdx}
                               style={{
-                                backgroundColor: 'rgb(26, 26, 27)',
-                                border: '1px solid rgb(48, 48, 52)',
+                                backgroundColor: 'var(--tag-bg)',
+                                border: '1px solid var(--tag-border)',
                                 borderRadius: '6px',
                                 padding: '2px 8px',
                                 fontSize: '11px',
-                                color: 'rgb(200, 200, 210)',
+                                color: 'var(--tag-text)',
                                 fontFamily: 'Poppins, sans-serif',
                               }}
                             >
@@ -389,14 +393,14 @@ export default function ResumeSection() {
                           fontSize: '13.5px',
                           fontWeight: 300,
                           lineHeight: '1.6em',
-                          color: 'rgb(175, 175, 180)',
+                          color: 'var(--text-secondary)',
                         }}
                       >
                         {role.description}
                       </p>
 
                       {role.highlights && (
-                        <ul className="list-disc list-inside mt-1 space-y-1 text-[13px] text-[rgb(185,185,186)]">
+                        <ul className="list-disc list-inside mt-1 space-y-1 text-[13px] text-[var(--text-secondary)]">
                           {role.highlights.map((highlight, hIdx) => (
                             <li key={hIdx} className="leading-relaxed font-light">
                               {highlight}
@@ -416,13 +420,15 @@ export default function ResumeSection() {
       {/* Education Timeline */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '24px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <div className="flex items-center gap-3">
@@ -431,11 +437,11 @@ export default function ResumeSection() {
               width: '36px',
               height: '36px',
               borderRadius: '10px',
-              backgroundColor: 'rgba(133, 138, 227, 0.12)',
+              backgroundColor: 'var(--accent-subtle)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'rgb(133, 138, 227)',
+              color: 'var(--accent-primary)',
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -446,7 +452,7 @@ export default function ResumeSection() {
           <SectionCardTitle title="Academic Education" />
         </div>
 
-        <div className="flex flex-col gap-6 pl-2 border-l-2 border-[rgb(43,43,44)] ml-3">
+        <div className="flex flex-col gap-6 pl-2 border-l-2 border-[var(--border-main)] ml-3">
           {educationData.map((item, idx) => (
             <div key={idx} className="relative pl-6">
               <div
@@ -457,7 +463,7 @@ export default function ResumeSection() {
                   width: '12px',
                   height: '12px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgb(133, 138, 227)',
+                  backgroundColor: 'var(--accent-primary)',
                 }}
               />
 
@@ -467,7 +473,7 @@ export default function ResumeSection() {
                     fontFamily: 'Poppins, sans-serif',
                     fontSize: '12px',
                     fontWeight: 500,
-                    color: 'rgb(133, 138, 227)',
+                    color: 'var(--accent-primary)',
                     letterSpacing: '0.04em',
                     textTransform: 'uppercase',
                   }}
@@ -480,7 +486,7 @@ export default function ResumeSection() {
                     fontFamily: 'Poppins, sans-serif',
                     fontSize: '18px',
                     fontWeight: 600,
-                    color: 'rgb(243, 243, 252)',
+                    color: 'var(--text-primary)',
                     lineHeight: '1.3em',
                   }}
                 >
@@ -492,10 +498,10 @@ export default function ResumeSection() {
                     fontFamily: 'Poppins, sans-serif',
                     fontSize: '14px',
                     fontWeight: 400,
-                    color: 'rgb(185, 185, 186)',
+                    color: 'var(--text-secondary)',
                   }}
                 >
-                  {item.organization} &bull; <span className="text-gray-400">{item.location}</span>
+                  {item.organization} &bull; <span className="text-[var(--text-muted)]">{item.location}</span>
                 </p>
 
                 <p
@@ -504,7 +510,7 @@ export default function ResumeSection() {
                     fontSize: '14px',
                     fontWeight: 300,
                     lineHeight: '1.6em',
-                    color: 'rgb(160, 160, 165)',
+                    color: 'var(--text-secondary)',
                     marginTop: '4px',
                   }}
                 >
@@ -517,12 +523,12 @@ export default function ResumeSection() {
                       <span
                         key={hIdx}
                         style={{
-                          backgroundColor: 'rgb(34, 34, 36)',
-                          border: '1px solid rgb(43, 43, 44)',
+                          backgroundColor: 'var(--bg-card-subtle)',
+                          border: '1px solid var(--border-main)',
                           borderRadius: '8px',
                           padding: '4px 10px',
                           fontSize: '12px',
-                          color: 'rgb(185, 185, 186)',
+                          color: 'var(--text-secondary)',
                           fontFamily: 'Poppins, sans-serif',
                         }}
                       >

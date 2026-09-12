@@ -17,7 +17,7 @@ export default function ContactItem({ icon, label, value, href }: ContactItemPro
           fontWeight: 400,
           letterSpacing: '0.04em',
           lineHeight: '1.4em',
-          color: 'rgb(152, 152, 152)',
+          color: 'var(--text-muted)',
           textTransform: 'uppercase',
         }}
       >
@@ -30,7 +30,7 @@ export default function ContactItem({ icon, label, value, href }: ContactItemPro
           fontWeight: 400,
           letterSpacing: '-0.01em',
           lineHeight: '1.4em',
-          color: 'rgb(243, 243, 252)',
+          color: 'var(--text-primary)',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
@@ -48,9 +48,10 @@ export default function ContactItem({ icon, label, value, href }: ContactItemPro
         style={{
           width: '38px',
           height: '38px',
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card-inner)',
+          border: '1px solid var(--border-main)',
           borderRadius: '10px',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease',
         }}
       >
         {icon}
@@ -60,7 +61,7 @@ export default function ContactItem({ icon, label, value, href }: ContactItemPro
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col flex-1 min-w-0 hover:text-[rgb(133,138,227)] transition-colors"
+          className="flex flex-col flex-1 min-w-0 hover:text-[var(--accent-primary)] transition-colors"
           style={{ textDecoration: 'none' }}
         >
           {content}

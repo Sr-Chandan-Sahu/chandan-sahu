@@ -1,4 +1,5 @@
 import React from 'react';
+import ThemeToggle from '@/components/ThemeToggle';
 
 // Crisp SVG Icons for Navigation items
 const AboutIcon = () => (
@@ -65,37 +66,47 @@ export default function NavBar({ activeSection, onNavClick }: NavBarProps) {
   return (
     <>
       {/* ========================================================================= */}
-      {/* 1. DESKTOP NAVBAR (Top Header Bar with Text labels) */}
+      {/* 1. DESKTOP NAVBAR (Top Header Bar with Text labels + Theme Toggle) */}
       {/* ========================================================================= */}
       <nav className="hidden lg:block w-full">
         <div
-          className="flex flex-row items-center justify-around w-full overflow-x-auto no-scrollbar gap-1"
+          className="flex flex-row items-center justify-between w-full overflow-x-auto no-scrollbar gap-2"
           style={{
-            backgroundColor: 'rgb(30, 30, 31)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: '24px',
-            border: '1px solid rgb(43, 43, 44)',
-            padding: '8px 12px',
+            border: '1px solid var(--border-main)',
+            boxShadow: 'var(--card-shadow)',
+            padding: '8px 16px',
+            transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
           }}
         >
-          {navItems.map((item) => {
-            const isActive = activeSection === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => onNavClick(item.id)}
-                className="px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-sm font-medium flex items-center justify-center"
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  border: 'none',
-                  backgroundColor: isActive ? 'rgba(133, 138, 227, 0.18)' : 'transparent',
-                  color: isActive ? 'rgb(133, 138, 227)' : 'rgb(185, 185, 186)',
-                  boxShadow: isActive ? 'inset 0 0 0 1px rgba(133, 138, 227, 0.4)' : 'none',
-                }}
-              >
-                {item.label}
-              </button>
-            );
-          })}
+          {/* Navigation Tab Pills */}
+          <div className="flex items-center gap-1.5 flex-1 justify-around">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => onNavClick(item.id)}
+                  className="px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap text-sm font-medium flex items-center justify-center hover:text-[var(--accent-primary)]"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    border: 'none',
+                    backgroundColor: isActive ? 'var(--accent-subtle)' : 'transparent',
+                    color: isActive ? 'var(--accent-primary)' : 'var(--text-secondary)',
+                    boxShadow: isActive ? 'inset 0 0 0 1px var(--accent-border)' : 'none',
+                  }}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Divider & Theme Toggle Switch */}
+          <div className="flex items-center gap-3 pl-2 border-l border-[var(--border-main)] shrink-0">
+            <ThemeToggle size="sm" />
+          </div>
         </div>
       </nav>
 
@@ -105,12 +116,13 @@ export default function NavBar({ activeSection, onNavClick }: NavBarProps) {
       <nav
         className="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex items-center justify-around px-2 pt-2"
         style={{
-          backgroundColor: 'rgba(24, 24, 26, 0.94)',
+          backgroundColor: 'var(--mobile-nav-bg)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-          boxShadow: '0 -4px 24px rgba(0, 0, 0, 0.65)',
+          borderTop: '1px solid var(--border-subtle)',
+          boxShadow: '0 -4px 24px rgba(0, 0, 0, 0.25)',
           paddingBottom: 'max(10px, env(safe-area-inset-bottom, 10px))',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease',
         }}
         aria-label="Mobile Navigation"
       >
@@ -127,8 +139,8 @@ export default function NavBar({ activeSection, onNavClick }: NavBarProps) {
                 }}
                 className={`relative flex items-center justify-center w-12 h-12 rounded-2xl transition-all duration-250 cursor-pointer active:scale-90 ${
                   isActive
-                    ? 'text-[rgb(133,138,227)] bg-[rgba(133,138,227,0.16)] ring-1 ring-[rgba(133,138,227,0.35)] shadow-[0_0_14px_rgba(133,138,227,0.2)]'
-                    : 'text-[rgb(155,155,165)] hover:text-white hover:bg-white/5'
+                    ? 'text-[var(--accent-primary)] bg-[var(--accent-subtle)] ring-1 ring-[var(--accent-border)] shadow-[0_0_14px_rgba(99,102,241,0.2)]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-black/5 dark:hover:bg-white/5'
                 }`}
                 aria-label={item.label}
                 title={item.label}
@@ -144,7 +156,7 @@ export default function NavBar({ activeSection, onNavClick }: NavBarProps) {
                 {/* Subtle Android active dot indicator */}
                 {isActive && (
                   <span
-                    className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-[rgb(133,138,227)] shadow-[0_0_6px_rgb(133,138,227)]"
+                    className="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)] shadow-[0_0_6px_var(--accent-primary)]"
                   />
                 )}
               </button>

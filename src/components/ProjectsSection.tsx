@@ -119,7 +119,7 @@ function ProjectImageCarousel({ images, title }: { images: string[]; title: stri
   };
 
   return (
-    <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-white border border-[rgb(48,48,52)] shadow-inner group/slider">
+    <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-white border border-[var(--border-main)] shadow-inner group/slider">
       <img
         src={images[currentIndex]}
         alt={`${title} - View ${currentIndex + 1}`}
@@ -192,18 +192,20 @@ export default function ProjectsSection() {
       {/* Header & Filter Card */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '20px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <SectionTitle title="Featured Projects" />
-          <span className="text-xs text-[rgb(185,185,186)] font-light">
+          <span className="text-xs text-[var(--text-secondary)] font-light">
             Full-Stack Applications &bull; Cloud Systems &bull; DevOps Pipelines
           </span>
         </div>
@@ -216,31 +218,39 @@ export default function ProjectsSection() {
             { label: 'Backend & AI Telemetry', value: 'backend' },
             { label: 'DevOps & Cloud', value: 'devops' },
             { label: 'Open Source', value: 'opensource' },
-          ].map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => setSelectedCategory(cat.value)}
-              className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap"
-              style={{
-                backgroundColor:
-                  selectedCategory === cat.value ? 'rgb(133, 138, 227)' : 'rgb(34, 34, 36)',
-                color: selectedCategory === cat.value ? '#ffffff' : 'rgb(185, 185, 186)',
-                border: '1px solid',
-                borderColor:
-                  selectedCategory === cat.value ? 'rgb(133, 138, 227)' : 'rgb(43, 43, 44)',
-                fontFamily: 'Poppins, sans-serif',
-              }}
-            >
-              {cat.label}
-            </button>
-          ))}
+          ].map((cat) => {
+            const isSelected = selectedCategory === cat.value;
+            return (
+              <button
+                key={cat.value}
+                onClick={() => setSelectedCategory(cat.value)}
+                className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap"
+                style={{
+                  backgroundColor: isSelected ? 'var(--accent-primary)' : 'var(--bg-card-subtle)',
+                  color: isSelected ? '#ffffff' : 'var(--text-secondary)',
+                  border: '1px solid',
+                  borderColor: isSelected ? 'var(--accent-primary)' : 'var(--border-main)',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
         {filteredProjects.length === 0 ? (
-          <div className="col-span-full p-8 text-center bg-[rgb(30,30,31)] border border-[rgb(43,43,44)] rounded-2xl text-[rgb(185,185,186)]">
+          <div
+            className="col-span-full p-8 text-center rounded-2xl border"
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              borderColor: 'var(--border-main)',
+              color: 'var(--text-secondary)',
+            }}
+          >
             No projects found matching the selected filter or search term.
           </div>
         ) : (
@@ -248,16 +258,18 @@ export default function ProjectsSection() {
             <div
               key={proj.id}
               style={{
-                backgroundColor: 'rgb(30, 30, 31)',
-                border: '1px solid rgb(43, 43, 44)',
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-main)',
                 borderRadius: '20px',
                 padding: '24px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 gap: '16px',
+                boxShadow: 'var(--card-shadow)',
+                transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease',
               }}
-              className="group hover:border-[rgb(133,138,227)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10"
+              className="group hover:border-[var(--accent-primary)] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10"
             >
               <div className="flex flex-col gap-3">
                 {/* Project Image Carousel */}
@@ -267,8 +279,8 @@ export default function ProjectsSection() {
                 <div className="flex items-center justify-between flex-wrap gap-2 pt-1">
                   <span
                     style={{
-                      backgroundColor: 'rgba(133, 138, 227, 0.12)',
-                      color: 'rgb(133, 138, 227)',
+                      backgroundColor: 'var(--accent-subtle)',
+                      color: 'var(--accent-primary)',
                       padding: '2px 8px',
                       borderRadius: '6px',
                       fontSize: '11px',
@@ -288,10 +300,10 @@ export default function ProjectsSection() {
                           : 'rgba(251, 191, 36, 0.12)',
                       color:
                         proj.status === 'Live Production'
-                          ? 'rgb(74, 222, 128)'
+                          ? 'rgb(34, 197, 94)'
                           : proj.status === 'Full Stack'
-                          ? 'rgb(96, 165, 250)'
-                          : 'rgb(251, 191, 36)',
+                          ? 'rgb(59, 130, 246)'
+                          : 'rgb(217, 119, 6)',
                       padding: '2px 8px',
                       borderRadius: '6px',
                       fontSize: '11px',
@@ -308,16 +320,16 @@ export default function ProjectsSection() {
                     fontFamily: 'Poppins, sans-serif',
                     fontSize: '17px',
                     fontWeight: 600,
-                    color: 'rgb(243, 243, 252)',
+                    color: 'var(--text-primary)',
                     lineHeight: '1.3em',
                   }}
-                  className="transition-colors group-hover:text-white"
+                  className="transition-colors group-hover:text-[var(--accent-primary)]"
                 >
                   {proj.title}
                 </h4>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-[rgb(185,185,186)] font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] font-light leading-relaxed">
                   {proj.description}
                 </p>
 
@@ -326,9 +338,13 @@ export default function ProjectsSection() {
                   {proj.metrics.map((metric, mIdx) => (
                     <span
                       key={mIdx}
-                      className="inline-flex items-center gap-1 text-[11px] font-medium text-[rgb(243,243,252)] bg-[rgb(34,34,36)] border border-[rgb(43,43,44)] px-2 py-0.5 rounded-md"
+                      className="inline-flex items-center gap-1 text-[11px] font-medium text-[var(--text-primary)] border px-2 py-0.5 rounded-md"
+                      style={{
+                        backgroundColor: 'var(--bg-card-subtle)',
+                        borderColor: 'var(--border-main)',
+                      }}
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[rgb(133,138,227)]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]" />
                       {metric}
                     </span>
                   ))}
@@ -339,7 +355,11 @@ export default function ProjectsSection() {
                   {proj.techStack.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="text-[10px] text-[rgb(150,150,155)] bg-[rgb(21,21,22)] border border-[rgb(43,43,44)] px-2 py-0.5 rounded"
+                      className="text-[10px] text-[var(--tag-text)] border px-2 py-0.5 rounded"
+                      style={{
+                        backgroundColor: 'var(--tag-bg)',
+                        borderColor: 'var(--tag-border)',
+                      }}
                     >
                       {tech}
                     </span>
@@ -348,13 +368,17 @@ export default function ProjectsSection() {
               </div>
 
               {/* Action Links */}
-              <div className="flex items-center gap-2 pt-3 border-t border-[rgb(43,43,44)]">
+              <div className="flex items-center gap-2 pt-3 border-t border-[var(--border-main)]">
                 {proj.githubUrl && (
                   <a
                     href={proj.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[rgb(34,34,36)] hover:bg-[rgb(43,43,44)] text-[rgb(243,243,252)] border border-[rgb(43,43,44)] transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[var(--text-primary)] border transition-colors hover:border-[var(--accent-primary)]"
+                    style={{
+                      backgroundColor: 'var(--bg-card-subtle)',
+                      borderColor: 'var(--border-main)',
+                    }}
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -368,7 +392,11 @@ export default function ProjectsSection() {
                     href={proj.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[rgb(34,34,36)] hover:bg-[rgb(43,43,44)] text-[rgb(133,138,227)] border border-[rgb(43,43,44)] transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[var(--accent-primary)] border transition-colors hover:border-[var(--accent-primary)]"
+                    style={{
+                      backgroundColor: 'var(--bg-card-subtle)',
+                      borderColor: 'var(--border-main)',
+                    }}
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />

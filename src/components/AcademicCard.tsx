@@ -17,14 +17,15 @@ export default function AcademicCard({
 }: AcademicCardProps) {
   return (
     <div
-      className="flex flex-row items-start hover:border-[rgb(94,98,161)] transition-all duration-200"
+      className="flex flex-row items-start hover:border-[var(--accent-primary)] transition-all duration-200"
       style={{
-        backgroundColor: 'rgb(34, 34, 36)',
-        border: '1px solid rgb(43, 43, 44)',
+        backgroundColor: 'var(--bg-card-subtle)',
+        border: '1px solid var(--border-main)',
         borderRadius: '16px',
         padding: '16px',
         gap: '14px',
         width: '100%',
+        boxShadow: 'var(--card-shadow)',
       }}
     >
       <div
@@ -32,14 +33,14 @@ export default function AcademicCard({
           width: '56px',
           height: '56px',
           borderRadius: '12px',
-          border: '2px solid rgba(133, 138, 227, 0.4)',
-          backgroundColor: 'rgba(133, 138, 227, 0.12)',
+          border: '2px solid var(--accent-border)',
+          backgroundColor: 'var(--accent-subtle)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontWeight: 700,
           fontSize: '18px',
-          color: 'rgb(133, 138, 227)',
+          color: 'var(--accent-primary)',
           flexShrink: 0,
         }}
       >
@@ -54,13 +55,13 @@ export default function AcademicCard({
               fontWeight: 600,
               letterSpacing: '-0.02em',
               lineHeight: '1.4em',
-              color: 'rgb(243, 243, 252)',
+              color: 'var(--text-primary)',
             }}
           >
             {institution}
           </h5>
           {year && (
-            <span className="text-xs text-[rgb(133,138,227)] font-medium font-mono">{year}</span>
+            <span className="text-xs text-[var(--accent-primary)] font-medium font-mono">{year}</span>
           )}
         </div>
         <p
@@ -70,13 +71,13 @@ export default function AcademicCard({
             fontWeight: 300,
             letterSpacing: '-0.01em',
             lineHeight: '1.6em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
           }}
         >
           {degree}
         </p>
         {grade && (
-          <span className="text-xs text-[rgb(74,222,128)] font-light mt-0.5">{grade}</span>
+          <span className="text-xs text-emerald-500 font-light mt-0.5">{grade}</span>
         )}
       </div>
     </div>

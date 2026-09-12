@@ -105,13 +105,15 @@ export default function SkillsSection() {
       {/* Header Card */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <SectionTitle title="Technical Skills" />
@@ -121,7 +123,7 @@ export default function SkillsSection() {
             fontSize: '14px',
             fontWeight: 300,
             lineHeight: '1.6em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
           }}
         >
           A comprehensive overview of my technical proficiencies across Frontend, Mobile, Backend, Databases, Cloud & DevOps, Testing, and Core Computer Science fundamentals.
@@ -157,16 +159,18 @@ function SkillCard({ category }: { category: SkillCategory }) {
   return (
     <div
       style={{
-        backgroundColor: 'rgb(30, 30, 31)',
-        border: '1.5px solid rgba(133, 138, 227, 0.35)',
+        backgroundColor: 'var(--bg-card)',
+        border: '1.5px solid var(--accent-border)',
         borderRadius: '24px',
         padding: '28px 24px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: '22px',
+        boxShadow: 'var(--card-shadow)',
+        transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
       }}
-      className="group hover:border-[rgb(133,138,227)] transition-all duration-300 shadow-md hover:shadow-indigo-500/10 h-full"
+      className="group hover:border-[var(--accent-primary)] transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 h-full"
     >
       {/* Centered Category Title with Animated Underline */}
       <div className="relative flex flex-col items-center pb-1">
@@ -175,15 +179,15 @@ function SkillCard({ category }: { category: SkillCategory }) {
             fontFamily: 'Poppins, sans-serif',
             fontSize: '20px',
             fontWeight: 600,
-            color: 'rgb(243, 243, 252)',
+            color: 'var(--text-primary)',
             textAlign: 'center',
             letterSpacing: '-0.01em',
           }}
-          className="transition-colors duration-300 group-hover:text-white"
+          className="transition-colors duration-300 group-hover:text-[var(--accent-primary)]"
         >
           {category.title}
         </h3>
-        <span className="h-[2.5px] rounded-full bg-gradient-to-r from-[#38BDF8] via-[#858AE3] to-[#C084FC] w-0 group-hover:w-full transition-all duration-300 ease-out mt-1.5 shadow-[0_0_8px_rgba(133,138,227,0.7)]" />
+        <span className="h-[2.5px] rounded-full bg-gradient-to-r from-[#38BDF8] via-[var(--accent-primary)] to-[#C084FC] w-0 group-hover:w-full transition-all duration-300 ease-out mt-1.5 shadow-[0_0_8px_rgba(133,138,227,0.7)]" />
       </div>
 
       {/* Pill Badges Container */}
@@ -194,11 +198,11 @@ function SkillCard({ category }: { category: SkillCategory }) {
           return (
             <div
               key={sIdx}
-              className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl transition-all duration-200 hover:scale-105 cursor-default group"
+              className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl transition-all duration-200 hover:scale-105 cursor-default group border"
               style={{
-                backgroundColor: 'rgb(21, 21, 22)',
-                border: '1px solid rgb(48, 48, 52)',
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.25)',
+                backgroundColor: 'var(--tag-bg)',
+                borderColor: 'var(--tag-border)',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.08)',
               }}
             >
               <div className="flex items-center justify-center flex-shrink-0 w-[18px] h-[18px]">
@@ -206,7 +210,7 @@ function SkillCard({ category }: { category: SkillCategory }) {
                   src={iconUrl}
                   alt={skill.name}
                   className={`w-[18px] h-[18px] object-contain flex-shrink-0 ${
-                    skill.invertOnDark ? 'brightness-0 invert' : ''
+                    skill.invertOnDark ? 'dark:brightness-0 dark:invert' : ''
                   }`}
                   loading="lazy"
                 />
@@ -216,7 +220,7 @@ function SkillCard({ category }: { category: SkillCategory }) {
                   fontFamily: 'Poppins, sans-serif',
                   fontSize: '13px',
                   fontWeight: 500,
-                  color: 'rgb(225, 225, 235)',
+                  color: 'var(--tag-text)',
                   whiteSpace: 'nowrap',
                 }}
               >

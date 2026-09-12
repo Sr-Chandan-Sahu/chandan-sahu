@@ -8,13 +8,13 @@ interface SectionTitleProps {
 export default function SectionTitle({ title, className = '' }: SectionTitleProps) {
   return (
     <div className={`flex flex-col gap-3 ${className}`}>
-      {/* Purple accent bar */}
+      {/* Accent bar */}
       <div
         style={{
           width: '80px',
           height: '4px',
           borderRadius: '2px',
-          background: 'rgb(133, 138, 227)',
+          background: 'var(--accent-primary)',
           flexShrink: 0,
         }}
       />
@@ -25,7 +25,8 @@ export default function SectionTitle({ title, className = '' }: SectionTitleProp
           fontWeight: 600,
           letterSpacing: '-0.04em',
           lineHeight: '1.1em',
-          color: 'rgb(243, 243, 252)',
+          color: 'var(--text-primary)',
+          transition: 'color 0.25s ease',
         }}
       >
         {title}

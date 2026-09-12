@@ -82,13 +82,15 @@ export default function CertificationsSection() {
       {/* Header Card */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <SectionTitle title="Certifications & Credentials" />
@@ -98,7 +100,7 @@ export default function CertificationsSection() {
             fontSize: '14px',
             fontWeight: 300,
             lineHeight: '1.6em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
           }}
         >
           Official verified certifications and role credentials earned on HackerRank, validating competencies across full-stack software engineering, React.js frontend development, SQL database architecture, and Python programming.
@@ -108,13 +110,15 @@ export default function CertificationsSection() {
       {/* Certifications Section Card */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '24px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <div className="flex items-center gap-3">
@@ -123,11 +127,11 @@ export default function CertificationsSection() {
               width: '36px',
               height: '36px',
               borderRadius: '10px',
-              backgroundColor: 'rgba(133, 138, 227, 0.12)',
+              backgroundColor: 'var(--accent-subtle)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'rgb(133, 138, 227)',
+              color: 'var(--accent-primary)',
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -153,8 +157,8 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
   return (
     <div
       style={{
-        backgroundColor: 'rgb(34, 34, 36)',
-        border: '1px solid rgb(43, 43, 44)',
+        backgroundColor: 'var(--bg-card-subtle)',
+        border: '1px solid var(--border-main)',
         borderRadius: '20px',
         padding: '24px',
         display: 'flex',
@@ -163,7 +167,7 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
         gap: '18px',
         transition: 'border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
       }}
-      className="hover:border-[rgb(133,138,227)] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10"
+      className="hover:border-[var(--accent-primary)] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10"
     >
       <div className="flex flex-col gap-3.5">
         {/* Header: Issuer & ID */}
@@ -171,10 +175,10 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
           <div className="flex items-center gap-2.5">
             <HackerRankIcon />
             <div className="flex flex-col">
-              <span className="text-xs font-semibold text-[rgb(243,243,252)]">
+              <span className="text-xs font-semibold text-[var(--text-primary)]">
                 {certificate.issuer}
               </span>
-              <span className="text-[11px] text-[rgb(133,138,227)] font-mono">
+              <span className="text-[11px] text-[var(--accent-primary)] font-mono font-medium">
                 ID: {certificate.id.toUpperCase()}
               </span>
             </div>
@@ -187,7 +191,7 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
             fontFamily: 'Poppins, sans-serif',
             fontSize: '18px',
             fontWeight: 600,
-            color: 'rgb(243, 243, 252)',
+            color: 'var(--text-primary)',
             lineHeight: '1.35em',
           }}
         >
@@ -199,7 +203,7 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
           href={certificate.verifyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-[rgb(21,21,22)] border border-[rgb(48,48,52)] shadow-inner group block cursor-pointer"
+          className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-black/5 dark:bg-[rgb(21,21,22)] border border-[var(--border-main)] shadow-inner group block cursor-pointer"
         >
           <img
             src={certificate.image}
@@ -210,7 +214,7 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
 
           {/* Hover Overlay with Verify */}
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-            <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[rgb(28,28,30)]/90 text-white text-xs font-medium border border-white/20 shadow-lg backdrop-blur-sm group-hover:border-[rgb(133,138,227)]/60 transition-colors">
+            <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[rgb(28,28,30)]/90 text-white text-xs font-medium border border-white/20 shadow-lg backdrop-blur-sm group-hover:border-[var(--accent-primary)] transition-colors">
               <span>Verify</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -228,7 +232,7 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
             fontSize: '13.5px',
             fontWeight: 300,
             lineHeight: '1.6em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
             marginTop: '2px',
           }}
         >
@@ -237,17 +241,17 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
       </div>
 
       {/* Skills Verified Tags */}
-      <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[rgb(43,43,44)]">
+      <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border-main)]">
         {certificate.skills.map((skill, sIdx) => (
           <span
             key={sIdx}
             style={{
-              backgroundColor: 'rgb(26, 26, 27)',
-              border: '1px solid rgb(48, 48, 52)',
+              backgroundColor: 'var(--tag-bg)',
+              border: '1px solid var(--tag-border)',
               borderRadius: '6px',
               padding: '2px 8px',
               fontSize: '11px',
-              color: 'rgb(200, 200, 210)',
+              color: 'var(--tag-text)',
               fontFamily: 'Poppins, sans-serif',
             }}
           >
@@ -258,5 +262,3 @@ function CertificateCard({ certificate }: { certificate: CertificateItem }) {
     </div>
   );
 }
-
-

@@ -38,8 +38,8 @@ export default function AboutSection() {
       {/* About Me Section Card */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
@@ -47,6 +47,8 @@ export default function AboutSection() {
           gap: '16px',
           position: 'relative',
           overflow: 'hidden',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <SectionTitle title="About Me" />
@@ -58,13 +60,13 @@ export default function AboutSection() {
             fontWeight: 300,
             letterSpacing: '-0.01em',
             lineHeight: '1.7em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
             textAlign: 'justify',
             position: 'relative',
             zIndex: 1,
           }}
         >
-          Hi there! I am <strong className="text-[rgb(243,243,252)] font-semibold">Chandan Sahu</strong>, a passionate and result-oriented Software Engineer with over 2 years of hands-on experience in full-stack web and application development. Based in Hyderabad, India, I specialize in building performant frontend architectures with React, Next.js, and TypeScript, backed by robust backend services using Node.js, Express, Python, C#, and scalable database systems.
+          Hi there! I am <strong className="text-[var(--text-primary)] font-semibold">Chandan Sahu</strong>, a passionate and result-oriented Software Engineer with over 2 years of hands-on experience in full-stack web and application development. Based in Hyderabad, India, I specialize in building performant frontend architectures with React, Next.js, and TypeScript, backed by robust backend services using Node.js, Express, Python, C#, and scalable database systems.
         </p>
 
         <p
@@ -74,7 +76,7 @@ export default function AboutSection() {
             fontWeight: 300,
             letterSpacing: '-0.01em',
             lineHeight: '1.7em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
             textAlign: 'justify',
             position: 'relative',
             zIndex: 1,
@@ -83,8 +85,9 @@ export default function AboutSection() {
           I thrive on crafting high-impact digital products that bridge elegant user interfaces with dependable, fault-tolerant infrastructure. Constantly learning and evolving, I am deeply invested in Cloud technologies (AWS, GCP), Docker containerization, CI/CD automation, and modern DevOps practices.
         </p>
 
-        {/* Glowing orb background effect */}
+        {/* Glowing orb background effect (Dark mode only) */}
         <div
+          className="dark:block hidden"
           style={{
             position: 'absolute',
             bottom: '-263px',
@@ -93,8 +96,10 @@ export default function AboutSection() {
             width: '279px',
             height: '279px',
             borderRadius: '500px',
-            background: 'linear-gradient(180deg, rgb(56, 58, 95) 0%, rgb(133, 138, 227) 100%)',
+            background: 'linear-gradient(180deg, rgb(56, 58, 95) 0%, var(--accent-primary) 100%)',
             filter: 'blur(48px)',
+            opacity: 'var(--glow-opacity)',
+            display: 'var(--glow-display)',
             zIndex: 0,
             pointerEvents: 'none',
           }}
@@ -104,13 +109,15 @@ export default function AboutSection() {
       {/* Career & GitHub Stars Section */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '20px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <SectionCardTitle title="Engineering Highlights" />

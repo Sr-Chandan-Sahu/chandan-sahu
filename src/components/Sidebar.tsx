@@ -33,13 +33,13 @@ const LocationIcon = () => (
 );
 
 const GithubIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--text-primary)]">
     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
   </svg>
 );
 
 const MediumIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--text-primary)]">
     <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
   </svg>
 );
@@ -64,8 +64,8 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
   return (
     <div
       style={{
-        backgroundColor: 'rgb(30, 30, 31)',
-        border: '1px solid rgba(255,255,255,0.08)',
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-main)',
         borderRadius: isMobileModal ? '28px 28px 0 0' : '24px',
         padding: isMobileModal ? '16px 20px 20px 20px' : '24px',
         display: 'flex',
@@ -73,21 +73,23 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
         gap: isMobileModal ? '12px' : '20px',
         position: 'relative',
         overflow: 'hidden',
+        boxShadow: 'var(--card-shadow)',
+        transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
       }}
       className={isMobileModal ? 'w-full shadow-2xl' : ''}
     >
       {/* Mobile Modal Header / Handle */}
       {isMobileModal && (
-        <div className="flex flex-col gap-1.5 pb-2 border-b border-[rgb(43,43,44)]">
+        <div className="flex flex-col gap-1.5 pb-2 border-b border-[var(--border-main)]">
           {/* Pull bar indicator */}
-          <div className="w-10 h-1 bg-gray-600/80 rounded-full mx-auto" />
+          <div className="w-10 h-1 bg-gray-400 dark:bg-gray-600 rounded-full mx-auto" />
           <div className="flex items-center justify-between mt-0.5">
-            <span className="text-[11px] uppercase tracking-wider text-[rgb(165,170,245)] font-medium">
+            <span className="text-[11px] uppercase tracking-wider text-[var(--accent-primary)] font-medium">
               Profile & Contact Info
             </span>
             <button
               onClick={onClose}
-              className="w-7 h-7 rounded-full bg-[rgb(43,43,44)] hover:bg-[rgb(55,55,60)] flex items-center justify-center text-gray-300 hover:text-white transition-colors cursor-pointer"
+              className="w-7 h-7 rounded-full bg-[var(--bg-card-subtle)] hover:bg-[var(--border-main)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer border border-[var(--border-main)]"
               aria-label="Close profile modal"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -107,10 +109,10 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
             width: isMobileModal ? '110px' : '100%',
             height: isMobileModal ? '110px' : '260px',
             borderRadius: isMobileModal ? '20px' : '16px',
-            border: '1px solid rgb(43, 43, 44)',
+            border: '1px solid var(--border-main)',
             overflow: 'hidden',
             flexShrink: 0,
-            backgroundColor: 'rgb(24, 24, 25)',
+            backgroundColor: 'var(--bg-card-inner)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -132,7 +134,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
             fontWeight: 600,
             letterSpacing: '0em',
             lineHeight: '1.2em',
-            color: 'rgb(243, 243, 252)',
+            color: 'var(--text-primary)',
             textAlign: 'center',
             marginTop: isMobileModal ? '0px' : '4px',
           }}
@@ -144,8 +146,8 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
         <div className="flex flex-wrap items-center justify-center gap-1.5">
           <div
             style={{
-              backgroundColor: 'rgb(43, 43, 44)',
-              border: '1px solid rgba(133, 138, 227, 0.3)',
+              backgroundColor: 'var(--bg-card-subtle)',
+              border: '1px solid var(--accent-border)',
               borderRadius: '7px',
               padding: isMobileModal ? '3px 10px' : '4px 14px',
             }}
@@ -155,7 +157,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
                 fontFamily: 'Poppins, sans-serif',
                 fontSize: isMobileModal ? '11px' : '12px',
                 fontWeight: 400,
-                color: 'rgb(243, 243, 252)',
+                color: 'var(--text-primary)',
               }}
             >
               Software Engineer
@@ -163,8 +165,8 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
           </div>
           <div
             style={{
-              backgroundColor: 'rgb(43, 43, 44)',
-              border: '1px solid rgba(133, 138, 227, 0.3)',
+              backgroundColor: 'var(--bg-card-subtle)',
+              border: '1px solid var(--accent-border)',
               borderRadius: '7px',
               padding: isMobileModal ? '3px 10px' : '4px 14px',
             }}
@@ -174,7 +176,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
                 fontFamily: 'Poppins, sans-serif',
                 fontSize: isMobileModal ? '11px' : '12px',
                 fontWeight: 400,
-                color: 'rgb(243, 243, 252)',
+                color: 'var(--text-primary)',
               }}
             >
               Full Stack Dev
@@ -187,7 +189,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
           style={{
             width: '100%',
             height: '1px',
-            backgroundColor: 'rgb(43, 43, 44)',
+            backgroundColor: 'var(--border-main)',
             margin: isMobileModal ? '2px 0' : '4px 0',
           }}
         />
@@ -218,7 +220,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
 
       {/* Social Icons with authentic brand colors & interactive hover states */}
       <div
-        className={`flex flex-row items-center justify-around w-full border-t border-[rgb(43,43,44)] ${
+        className={`flex flex-row items-center justify-around w-full border-t border-[var(--border-main)] ${
           isMobileModal ? 'pt-2.5' : 'pt-3'
         }`}
       >
@@ -227,7 +229,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
           target="_blank"
           rel="noopener noreferrer"
           title="LinkedIn Profile"
-          className={`flex items-center justify-center rounded-xl bg-[rgb(34,34,36)] hover:bg-[#0A66C2]/20 border border-[rgb(43,43,44)] hover:border-[#0A66C2] transition-all duration-200 hover:scale-110 shadow-sm ${
+          className={`flex items-center justify-center rounded-xl bg-[var(--bg-card-subtle)] hover:bg-[#0A66C2]/20 border border-[var(--border-main)] hover:border-[#0A66C2] transition-all duration-200 hover:scale-110 shadow-sm ${
             isMobileModal ? 'w-9 h-9' : 'w-10 h-10'
           }`}
         >
@@ -238,7 +240,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
           target="_blank"
           rel="noopener noreferrer"
           title="GitHub Profile"
-          className={`flex items-center justify-center rounded-xl bg-[rgb(34,34,36)] hover:bg-white/15 border border-[rgb(43,43,44)] hover:border-white/50 transition-all duration-200 hover:scale-110 shadow-sm ${
+          className={`flex items-center justify-center rounded-xl bg-[var(--bg-card-subtle)] hover:bg-black/10 dark:hover:bg-white/15 border border-[var(--border-main)] hover:border-[var(--accent-primary)] transition-all duration-200 hover:scale-110 shadow-sm ${
             isMobileModal ? 'w-9 h-9' : 'w-10 h-10'
           }`}
         >
@@ -249,7 +251,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
           target="_blank"
           rel="noopener noreferrer"
           title="Medium Blog"
-          className={`flex items-center justify-center rounded-xl bg-[rgb(34,34,36)] hover:bg-emerald-500/20 border border-[rgb(43,43,44)] hover:border-emerald-400 transition-all duration-200 hover:scale-110 shadow-sm ${
+          className={`flex items-center justify-center rounded-xl bg-[var(--bg-card-subtle)] hover:bg-emerald-500/20 border border-[var(--border-main)] hover:border-emerald-400 transition-all duration-200 hover:scale-110 shadow-sm ${
             isMobileModal ? 'w-9 h-9' : 'w-10 h-10'
           }`}
         >
@@ -260,7 +262,7 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
           target="_blank"
           rel="noopener noreferrer"
           title="Stack Overflow"
-          className={`flex items-center justify-center rounded-xl bg-[rgb(34,34,36)] hover:bg-[#F48024]/20 border border-[rgb(43,43,44)] hover:border-[#F48024] transition-all duration-200 hover:scale-110 shadow-sm ${
+          className={`flex items-center justify-center rounded-xl bg-[var(--bg-card-subtle)] hover:bg-[#F48024]/20 border border-[var(--border-main)] hover:border-[#F48024] transition-all duration-200 hover:scale-110 shadow-sm ${
             isMobileModal ? 'w-9 h-9' : 'w-10 h-10'
           }`}
         >
@@ -268,9 +270,10 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
         </a>
       </div>
 
-      {/* Glowing orb background effect (Desktop only so it doesn't cause overflow on mobile) */}
+      {/* Glowing orb background effect (Dark mode desktop only) */}
       {!isMobileModal && (
         <div
+          className="dark:block hidden"
           style={{
             position: 'absolute',
             bottom: '-260px',
@@ -279,8 +282,10 @@ export default function Sidebar({ isMobileModal = false, onClose }: SidebarProps
             width: '280px',
             height: '280px',
             borderRadius: '500px',
-            background: 'linear-gradient(180deg, rgb(56, 58, 95) 0%, rgb(133, 138, 227) 100%)',
+            background: 'linear-gradient(180deg, rgb(56, 58, 95) 0%, var(--accent-primary) 100%)',
             filter: 'blur(48px)',
+            opacity: 'var(--glow-opacity)',
+            display: 'var(--glow-display)',
             zIndex: 0,
             pointerEvents: 'none',
           }}

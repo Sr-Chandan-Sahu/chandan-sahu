@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Sidebar from '@/components/Sidebar';
+import ThemeToggle from '@/components/ThemeToggle';
 import AboutSection from '@/components/AboutSection';
 import ResumeSection from '@/components/ResumeSection';
 import ProjectsSection from '@/components/ProjectsSection';
@@ -39,61 +40,64 @@ export default function App() {
   return (
     <div
       style={{
-        backgroundColor: 'rgb(21, 21, 22)',
+        backgroundColor: 'var(--bg-main)',
+        color: 'var(--text-primary)',
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         fontFamily: 'Poppins, sans-serif',
         padding: '0 16px',
+        transition: 'background-color 0.25s ease, color 0.25s ease',
       }}
     >
       {/* ========================================================================= */}
-      {/* MOBILE TOP HEADER BAR (with Profile Icon on Top Right of each screen) */}
+      {/* MOBILE TOP HEADER BAR (with Theme Toggle & Profile on Top Right) */}
       {/* ========================================================================= */}
-      <header className="lg:hidden w-full max-w-[1200px] flex items-center justify-between py-4 pt-5 pb-3 border-b border-[rgb(38,38,40)] sticky top-0 bg-[rgb(21,21,22)]/95 backdrop-blur-md z-30">
-        <div className="flex items-center gap-3">
+      <header
+        className="lg:hidden w-full max-w-[1200px] flex items-center justify-between py-3.5 px-1 border-b sticky top-0 z-30"
+        style={{
+          backgroundColor: 'var(--header-bg)',
+          borderColor: 'var(--border-subtle)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease',
+        }}
+      >
+        {/* Branding */}
+        <div className="flex items-center gap-2.5">
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
           <div className="flex flex-col">
-            <span className="font-semibold text-base text-gray-100 leading-tight">
+            <span className="font-semibold text-sm text-[var(--text-primary)] leading-tight">
               Chandan Sahu
             </span>
-            <span className="text-[11px] text-[rgb(133,138,227)] font-light leading-tight">
+            <span className="text-[11px] text-[var(--accent-primary)] font-normal leading-tight">
               Full Stack Engineer
             </span>
           </div>
         </div>
 
-        {/* Profile Button on Top Right */}
-        <button
-          onClick={() => setIsProfileOpen(true)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgb(30,30,32)] border border-[rgba(133,138,227,0.35)] hover:border-[rgb(133,138,227)] transition-all duration-200 active:scale-95 shadow-md shadow-black/40 group cursor-pointer"
-          aria-label="View Profile & Contact Info"
-        >
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-[rgb(133,138,227)] shadow-sm shrink-0">
+        {/* Top Right Controls: Theme Toggle + Profile Button */}
+        <div className="flex items-center gap-2.5">
+          <ThemeToggle size="sm" />
+
+          <button
+            onClick={() => setIsProfileOpen(true)}
+            className="relative flex items-center justify-center w-8 h-8 rounded-full border border-[var(--accent-primary)] transition-all duration-200 active:scale-90 hover:scale-105 shadow-sm overflow-hidden cursor-pointer shrink-0"
+            style={{
+              backgroundColor: 'var(--bg-card)',
+              boxShadow: '0 0 8px var(--accent-subtle)',
+            }}
+            aria-label="View Profile & Contact Info"
+            title="View Profile & Contact Info"
+          >
             <img
               src={myProfileImg}
               alt="Chandan Sahu Profile"
               className="w-full h-full object-cover object-top"
             />
-          </div>
-          <span className="text-xs text-gray-200 font-medium group-hover:text-[rgb(133,138,227)]">
-            Profile
-          </span>
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-[rgb(133,138,227)]"
-          >
-            <path d="m9 18 6-6-6-6" />
-          </svg>
-        </button>
+          </button>
+        </div>
       </header>
 
       {/* ========================================================================= */}
@@ -101,7 +105,7 @@ export default function App() {
       {/* ========================================================================= */}
       {isProfileOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm transition-all duration-300"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm transition-all duration-300"
           onClick={() => setIsProfileOpen(false)}
         >
           <div
@@ -116,7 +120,7 @@ export default function App() {
       {/* ========================================================================= */}
       {/* MAIN CONTAINER (Desktop 2-Column Layout / Mobile Stacked Layout) */}
       {/* ========================================================================= */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-start w-full max-w-[1200px] gap-6 lg:gap-8 py-4 lg:py-10 pb-24 lg:pb-10">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-start w-full max-w-[1200px] gap-6 lg:gap-8 py-4 lg:py-8 pb-24 lg:pb-10">
         {/* DESKTOP LEFT SIDEBAR (Sticky on lg screens, hidden on mobile) */}
         <aside className="hidden lg:block w-[320px] xl:w-[340px] flex-shrink-0 lg:sticky lg:top-8">
           <Sidebar />
@@ -124,7 +128,7 @@ export default function App() {
 
         {/* RIGHT MAIN CONTENT */}
         <main className="flex-1 min-w-0 flex flex-col gap-6">
-          {/* Navigation (Desktop Top Bar + Mobile Bottom Android TabBar) */}
+          {/* Navigation (Desktop Top Bar with ThemeToggle + Mobile Bottom Android TabBar) */}
           <NavBar activeSection={activeSection} onNavClick={setActiveSection} />
 
           {/* Dynamic Section Views */}

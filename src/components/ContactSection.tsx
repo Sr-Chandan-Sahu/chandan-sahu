@@ -141,13 +141,15 @@ export default function ContactSection() {
       {/* Contact Header Card */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <SectionTitle title="Get in Touch" />
@@ -157,7 +159,7 @@ export default function ContactSection() {
             fontSize: '14px',
             fontWeight: 300,
             lineHeight: '1.6em',
-            color: 'rgb(185, 185, 186)',
+            color: 'var(--text-secondary)',
           }}
         >
           I am always open to discussing new full-time software engineering roles, contract projects, open-source collaborations, or tech consulting. Reach out directly or fill in the form below!
@@ -169,15 +171,17 @@ export default function ContactSection() {
         {/* Email */}
         <div
           style={{
-            backgroundColor: 'rgb(30, 30, 31)',
-            border: '1px solid rgb(43, 43, 44)',
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-main)',
             borderRadius: '20px',
             padding: '20px',
             display: 'flex',
             alignItems: 'center',
             gap: '14px',
+            boxShadow: 'var(--card-shadow)',
+            transition: 'background-color 0.25s ease, border-color 0.25s ease',
           }}
-          className="hover:border-[#EA4335]/50 transition-all duration-200"
+          className="hover:border-[#EA4335]/60 transition-all duration-200"
         >
           <div
             style={{
@@ -203,7 +207,7 @@ export default function ContactSection() {
             <span className="text-xs uppercase font-medium text-[#EA4335]">Direct Email</span>
             <a
               href="mailto:chandansahu9054@gmail.com"
-              className="text-sm font-semibold text-[rgb(243,243,252)] hover:underline truncate"
+              className="text-sm font-semibold text-[var(--text-primary)] hover:underline truncate"
             >
               chandansahu9054@gmail.com
             </a>
@@ -213,15 +217,17 @@ export default function ContactSection() {
         {/* Location */}
         <div
           style={{
-            backgroundColor: 'rgb(30, 30, 31)',
-            border: '1px solid rgb(43, 43, 44)',
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-main)',
             borderRadius: '20px',
             padding: '20px',
             display: 'flex',
             alignItems: 'center',
             gap: '14px',
+            boxShadow: 'var(--card-shadow)',
+            transition: 'background-color 0.25s ease, border-color 0.25s ease',
           }}
-          className="hover:border-rose-400/50 transition-all duration-200"
+          className="hover:border-rose-400/60 transition-all duration-200"
         >
           <div
             style={{
@@ -245,7 +251,7 @@ export default function ContactSection() {
           </div>
           <div className="flex flex-col min-w-0">
             <span className="text-xs uppercase font-medium text-[#EA4335]">Location</span>
-            <span className="text-sm font-semibold text-[rgb(243,243,252)] truncate">
+            <span className="text-sm font-semibold text-[var(--text-primary)] truncate">
               Hyderabad, Telangana, India
             </span>
           </div>
@@ -254,15 +260,17 @@ export default function ContactSection() {
         {/* LinkedIn */}
         <div
           style={{
-            backgroundColor: 'rgb(30, 30, 31)',
-            border: '1px solid rgb(43, 43, 44)',
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-main)',
             borderRadius: '20px',
             padding: '20px',
             display: 'flex',
             alignItems: 'center',
             gap: '14px',
+            boxShadow: 'var(--card-shadow)',
+            transition: 'background-color 0.25s ease, border-color 0.25s ease',
           }}
-          className="hover:border-[#0A66C2]/50 transition-all duration-200"
+          className="hover:border-[#0A66C2]/60 transition-all duration-200"
         >
           <div
             style={{
@@ -290,7 +298,7 @@ export default function ContactSection() {
               href="https://www.linkedin.com/in/sr-chandan-sahu/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-[rgb(243,243,252)] hover:underline truncate"
+              className="text-sm font-semibold text-[var(--text-primary)] hover:underline truncate"
             >
               in/sr-chandan-sahu
             </a>
@@ -301,25 +309,27 @@ export default function ContactSection() {
       {/* Interactive Contact Form */}
       <div
         style={{
-          backgroundColor: 'rgb(30, 30, 31)',
-          border: '1px solid rgb(43, 43, 44)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-main)',
           borderRadius: '24px',
           padding: '28px',
           display: 'flex',
           flexDirection: 'column',
           gap: '20px',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease',
         }}
       >
         <SectionCardTitle title="Send a Direct Message" />
 
         {submitStatus === 'success' && (
-          <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-3">
+          <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 dark:text-emerald-300 text-sm flex items-center gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="20 6 9 17 4 12" />
             </svg>
             <div>
               <strong>Message Sent Successfully!</strong>
-              <p className="text-xs text-emerald-200/80 mt-0.5">
+              <p className="text-xs text-emerald-600 dark:text-emerald-200/80 mt-0.5">
                 Thank you for contacting me. I will get back to you within 24 hours.
               </p>
             </div>
@@ -327,7 +337,7 @@ export default function ContactSection() {
         )}
 
         {submitStatus === 'error' && (
-          <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-sm flex items-center gap-3">
+          <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 dark:text-rose-300 text-sm flex items-center gap-3">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10" />
               <line x1="12" y1="8" x2="12" y2="12" />
@@ -341,8 +351,8 @@ export default function ContactSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Name */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium text-[rgb(185,185,186)] flex items-center justify-between">
-                <span>Full Name <span className="text-rose-400">*</span></span>
+              <label className="text-xs font-medium text-[var(--text-secondary)] flex items-center justify-between">
+                <span>Full Name <span className="text-rose-500">*</span></span>
               </label>
               <input
                 type="text"
@@ -350,17 +360,20 @@ export default function ContactSection() {
                 value={formData.name}
                 onChange={(e) => handleChange('name', e.target.value)}
                 onBlur={() => handleBlur('name')}
-                className={`w-full px-4 py-2.5 rounded-xl bg-[rgb(21,21,22)] border text-[rgb(243,243,252)] text-sm placeholder-[rgb(120,120,125)] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-2.5 rounded-xl border text-[var(--text-primary)] text-sm placeholder-[var(--text-muted)] focus:outline-none transition-colors ${
                   touched.name && errors.name
                     ? 'border-rose-500/80 bg-rose-500/5 focus:border-rose-500'
                     : touched.name && !errors.name
                     ? 'border-emerald-500/60 focus:border-emerald-500'
-                    : 'border-[rgb(43,43,44)] focus:border-[rgb(133,138,227)]'
+                    : 'border-[var(--border-main)] focus:border-[var(--accent-primary)]'
                 }`}
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                style={{
+                  backgroundColor: 'var(--input-bg)',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
               />
               {touched.name && errors.name && (
-                <span className="text-rose-400 text-[11px] font-light flex items-center gap-1 mt-0.5">
+                <span className="text-rose-500 text-[11px] font-light flex items-center gap-1 mt-0.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="12" />
@@ -373,8 +386,8 @@ export default function ContactSection() {
 
             {/* Email */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium text-[rgb(185,185,186)] flex items-center justify-between">
-                <span>Email Address <span className="text-rose-400">*</span></span>
+              <label className="text-xs font-medium text-[var(--text-secondary)] flex items-center justify-between">
+                <span>Email Address <span className="text-rose-500">*</span></span>
               </label>
               <input
                 type="email"
@@ -382,17 +395,20 @@ export default function ContactSection() {
                 value={formData.email}
                 onChange={(e) => handleChange('email', e.target.value)}
                 onBlur={() => handleBlur('email')}
-                className={`w-full px-4 py-2.5 rounded-xl bg-[rgb(21,21,22)] border text-[rgb(243,243,252)] text-sm placeholder-[rgb(120,120,125)] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-2.5 rounded-xl border text-[var(--text-primary)] text-sm placeholder-[var(--text-muted)] focus:outline-none transition-colors ${
                   touched.email && errors.email
                     ? 'border-rose-500/80 bg-rose-500/5 focus:border-rose-500'
                     : touched.email && !errors.email
                     ? 'border-emerald-500/60 focus:border-emerald-500'
-                    : 'border-[rgb(43,43,44)] focus:border-[rgb(133,138,227)]'
+                    : 'border-[var(--border-main)] focus:border-[var(--accent-primary)]'
                 }`}
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                style={{
+                  backgroundColor: 'var(--input-bg)',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
               />
               {touched.email && errors.email && (
-                <span className="text-rose-400 text-[11px] font-light flex items-center gap-1 mt-0.5">
+                <span className="text-rose-500 text-[11px] font-light flex items-center gap-1 mt-0.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="12" />
@@ -407,9 +423,9 @@ export default function ContactSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Phone Number */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium text-[rgb(185,185,186)] flex items-center justify-between">
+              <label className="text-xs font-medium text-[var(--text-secondary)] flex items-center justify-between">
                 <span>Phone Number</span>
-                <span className="text-[11px] text-[rgb(130,130,135)] font-light">Optional</span>
+                <span className="text-[11px] text-[var(--text-muted)] font-light">Optional</span>
               </label>
               <input
                 type="tel"
@@ -417,17 +433,20 @@ export default function ContactSection() {
                 value={formData.phone}
                 onChange={(e) => handleChange('phone', e.target.value)}
                 onBlur={() => handleBlur('phone')}
-                className={`w-full px-4 py-2.5 rounded-xl bg-[rgb(21,21,22)] border text-[rgb(243,243,252)] text-sm placeholder-[rgb(120,120,125)] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-2.5 rounded-xl border text-[var(--text-primary)] text-sm placeholder-[var(--text-muted)] focus:outline-none transition-colors ${
                   touched.phone && errors.phone
                     ? 'border-rose-500/80 bg-rose-500/5 focus:border-rose-500'
                     : touched.phone && formData.phone && !errors.phone
                     ? 'border-emerald-500/60 focus:border-emerald-500'
-                    : 'border-[rgb(43,43,44)] focus:border-[rgb(133,138,227)]'
+                    : 'border-[var(--border-main)] focus:border-[var(--accent-primary)]'
                 }`}
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                style={{
+                  backgroundColor: 'var(--input-bg)',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
               />
               {touched.phone && errors.phone && (
-                <span className="text-rose-400 text-[11px] font-light flex items-center gap-1 mt-0.5">
+                <span className="text-rose-500 text-[11px] font-light flex items-center gap-1 mt-0.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="12" />
@@ -440,8 +459,8 @@ export default function ContactSection() {
 
             {/* Subject */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium text-[rgb(185,185,186)] flex items-center justify-between">
-                <span>Subject <span className="text-rose-400">*</span></span>
+              <label className="text-xs font-medium text-[var(--text-secondary)] flex items-center justify-between">
+                <span>Subject <span className="text-rose-500">*</span></span>
               </label>
               <input
                 type="text"
@@ -449,17 +468,20 @@ export default function ContactSection() {
                 value={formData.subject}
                 onChange={(e) => handleChange('subject', e.target.value)}
                 onBlur={() => handleBlur('subject')}
-                className={`w-full px-4 py-2.5 rounded-xl bg-[rgb(21,21,22)] border text-[rgb(243,243,252)] text-sm placeholder-[rgb(120,120,125)] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-2.5 rounded-xl border text-[var(--text-primary)] text-sm placeholder-[var(--text-muted)] focus:outline-none transition-colors ${
                   touched.subject && errors.subject
                     ? 'border-rose-500/80 bg-rose-500/5 focus:border-rose-500'
                     : touched.subject && !errors.subject
                     ? 'border-emerald-500/60 focus:border-emerald-500'
-                    : 'border-[rgb(43,43,44)] focus:border-[rgb(133,138,227)]'
+                    : 'border-[var(--border-main)] focus:border-[var(--accent-primary)]'
                 }`}
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                style={{
+                  backgroundColor: 'var(--input-bg)',
+                  fontFamily: 'Poppins, sans-serif',
+                }}
               />
               {touched.subject && errors.subject && (
-                <span className="text-rose-400 text-[11px] font-light flex items-center gap-1 mt-0.5">
+                <span className="text-rose-500 text-[11px] font-light flex items-center gap-1 mt-0.5">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="12" />
@@ -473,9 +495,9 @@ export default function ContactSection() {
 
           {/* Message */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-medium text-[rgb(185,185,186)] flex items-center justify-between">
+            <label className="text-xs font-medium text-[var(--text-secondary)] flex items-center justify-between">
               <span>Your Message</span>
-              <span className="text-[11px] text-[rgb(130,130,135)] font-light">Optional</span>
+              <span className="text-[11px] text-[var(--text-muted)] font-light">Optional</span>
             </label>
             <textarea
               rows={5}
@@ -483,12 +505,15 @@ export default function ContactSection() {
               value={formData.message}
               onChange={(e) => handleChange('message', e.target.value)}
               onBlur={() => handleBlur('message')}
-              className={`w-full px-4 py-3 rounded-xl bg-[rgb(21,21,22)] border text-[rgb(243,243,252)] text-sm placeholder-[rgb(120,120,125)] focus:outline-none transition-colors resize-y ${
+              className={`w-full px-4 py-3 rounded-xl border text-[var(--text-primary)] text-sm placeholder-[var(--text-muted)] focus:outline-none transition-colors resize-y ${
                 touched.message && formData.message
                   ? 'border-emerald-500/60 focus:border-emerald-500'
-                  : 'border-[rgb(43,43,44)] focus:border-[rgb(133,138,227)]'
+                  : 'border-[var(--border-main)] focus:border-[var(--accent-primary)]'
               }`}
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              style={{
+                backgroundColor: 'var(--input-bg)',
+                fontFamily: 'Poppins, sans-serif',
+              }}
             />
           </div>
 
@@ -496,10 +521,9 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto self-start px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer shadow-lg hover:shadow-indigo-500/25 active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto self-start px-8 py-3 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer shadow-lg hover:shadow-indigo-500/25 active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2 text-white"
             style={{
-              backgroundColor: 'rgb(133, 138, 227)',
-              color: '#ffffff',
+              backgroundColor: 'var(--accent-primary)',
               border: 'none',
               fontFamily: 'Poppins, sans-serif',
             }}

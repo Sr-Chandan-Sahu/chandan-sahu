@@ -19,7 +19,7 @@ export default function StatCard({
   label,
   sublabel,
   icon,
-  accentColor = 'rgb(133, 138, 227)',
+  accentColor = 'var(--accent-primary)',
 }: StatCardProps) {
   const [count, setCount] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -68,21 +68,32 @@ export default function StatCard({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group relative flex flex-col items-center justify-between rounded-2xl border border-[rgb(43,43,44)] bg-[rgb(34,34,36)] p-5 transition-all duration-300 hover:border-[rgb(133,138,227)] hover:-translate-y-1.5 hover:shadow-xl hover:shadow-indigo-500/10 cursor-pointer overflow-hidden text-center min-h-[155px]"
+      className="group relative flex flex-col items-center justify-between rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl cursor-pointer overflow-hidden text-center min-h-[155px]"
+      style={{
+        backgroundColor: 'var(--bg-card-subtle)',
+        borderColor: 'var(--border-main)',
+        boxShadow: 'var(--card-shadow)',
+      }}
     >
       {/* Ambient Spotlight */}
       {mousePos.active && (
         <div
           className="pointer-events-none absolute -inset-px transition-opacity duration-300"
           style={{
-            background: `radial-gradient(200px circle at ${mousePos.x}px ${mousePos.y}px, rgba(133, 138, 227, 0.15), transparent 80%)`,
+            background: `radial-gradient(200px circle at ${mousePos.x}px ${mousePos.y}px, var(--accent-subtle), transparent 80%)`,
           }}
         />
       )}
 
       {/* Top Icon Container */}
       {icon && (
-        <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[rgb(24,24,26)] border border-[rgb(48,48,52)] transition-transform duration-300 group-hover:scale-110 group-hover:border-[rgb(133,138,227)] shadow-inner">
+        <div
+          className="flex items-center justify-center w-9 h-9 rounded-xl border transition-transform duration-300 group-hover:scale-110 shadow-inner"
+          style={{
+            backgroundColor: 'var(--bg-card-inner)',
+            borderColor: 'var(--border-main)',
+          }}
+        >
           {icon}
         </div>
       )}
@@ -96,9 +107,9 @@ export default function StatCard({
             fontWeight: 700,
             letterSpacing: '-0.03em',
             lineHeight: '1.1em',
-            color: 'rgb(243, 243, 252)',
+            color: 'var(--text-primary)',
           }}
-          className="group-hover:text-[rgb(133,138,227)] transition-colors"
+          className="group-hover:text-[var(--accent-primary)] transition-colors"
         >
           {displayValue}
         </h4>
@@ -111,14 +122,14 @@ export default function StatCard({
             fontFamily: 'Poppins, sans-serif',
             fontSize: '13px',
             fontWeight: 500,
-            color: 'rgb(220, 220, 225)',
+            color: 'var(--text-secondary)',
             lineHeight: '1.3em',
           }}
         >
           {label}
         </p>
         {sublabel && (
-          <span className="text-[11px] text-[rgb(140,140,145)] font-light mt-0.5 block">
+          <span className="text-[11px] text-[var(--text-muted)] font-light mt-0.5 block">
             {sublabel}
           </span>
         )}

@@ -13,7 +13,8 @@ export default function SectionCardTitle({ title }: SectionCardTitleProps) {
         fontWeight: 600,
         letterSpacing: '0em',
         lineHeight: '1.4em',
-        color: 'rgb(243, 243, 252)',
+        color: 'var(--text-primary)',
+        transition: 'color 0.25s ease',
       }}
     >
       {title}
