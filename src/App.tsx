@@ -120,7 +120,7 @@ export default function App() {
       {/* ========================================================================= */}
       {/* MAIN CONTAINER (Desktop 2-Column Layout / Mobile Stacked Layout) */}
       {/* ========================================================================= */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-start w-full max-w-[1200px] gap-6 lg:gap-8 py-4 lg:py-8 pb-24 lg:pb-10">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-start w-full max-w-[1200px] gap-6 lg:gap-8 py-4 lg:py-8 pb-28 lg:pb-10">
         {/* DESKTOP LEFT SIDEBAR (Sticky on lg screens, hidden on mobile) */}
         <aside className="hidden lg:block w-[320px] xl:w-[340px] flex-shrink-0 lg:sticky lg:top-8">
           <Sidebar />

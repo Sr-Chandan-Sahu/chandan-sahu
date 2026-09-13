@@ -23,6 +23,12 @@
   --tag-border: rgb(48, 48, 52);
   --tag-text: rgb(200, 200, 210);
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --liquid-dock-bg: rgba(22, 22, 26, 0.75);
+  --liquid-dock-border: rgba(255, 255, 255, 0.12);
+  --liquid-tab-active-bg: linear-gradient(135deg, rgba(133, 138, 227, 0.3) 0%, rgba(99, 102, 241, 0.14) 100%);
+  --liquid-tab-active-border: rgba(155, 160, 245, 0.45);
+  --liquid-tab-active-glow: rgba(133, 138, 227, 0.35);
+  --liquid-tab-hover: rgba(255, 255, 255, 0.06);
   --glow-display: block;
   --glow-opacity: 1;
   --scrollbar-track: rgba(255, 255, 255, 0.05);
@@ -47,6 +53,12 @@
   --accent-border: rgba(99, 102, 241, 0.35);
   --header-bg: rgba(241, 243, 247, 0.95);
   --mobile-nav-bg: rgba(255, 255, 255, 0.95);
+  --liquid-dock-bg: rgba(255, 255, 255, 0.82);
+  --liquid-dock-border: rgba(255, 255, 255, 0.75);
+  --liquid-tab-active-bg: linear-gradient(135deg, rgba(99, 102, 241, 0.16) 0%, rgba(133, 138, 227, 0.08) 100%);
+  --liquid-tab-active-border: rgba(99, 102, 241, 0.35);
+  --liquid-tab-active-glow: rgba(99, 102, 241, 0.22);
+  --liquid-tab-hover: rgba(0, 0, 0, 0.04);
   --input-bg: #f8fafc;
   --input-border: #cbd5e1;
   --tag-bg: #f1f5f9;
@@ -109,3 +121,45 @@ h1, h2, h3, h4, h5, h6, p, figure {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ========================================================================= */
+/* Modern Liquid Glass Dock & Mobile App Tab Bar */
+/* ========================================================================= */
+.liquid-glass-dock {
+  background: var(--liquid-dock-bg);
+  backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(105%);
+  border: 1px solid var(--liquid-dock-border);
+  box-shadow: 
+    0 16px 36px -6px rgba(0, 0, 0, 0.45),
+    0 6px 14px -2px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .liquid-glass-dock,
+body.light .liquid-glass-dock {
+  box-shadow: 
+    0 14px 30px -5px rgba(0, 0, 0, 0.1),
+    0 4px 12px -2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.liquid-glass-tab-active {
+  background: var(--liquid-tab-active-bg);
+  border: 1px solid var(--liquid-tab-active-border);
+  box-shadow: 
+    0 4px 14px -1px var(--liquid-tab-active-glow),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .liquid-glass-tab-active,
+body.light .liquid-glass-tab-active {
+  box-shadow: 
+    0 4px 12px -1px var(--liquid-tab-active-glow),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 1px 0 rgba(99, 102, 241, 0.08);
+}
+
