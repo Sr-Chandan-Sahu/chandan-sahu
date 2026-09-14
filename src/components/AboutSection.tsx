@@ -66,7 +66,7 @@ export default function AboutSection() {
             zIndex: 1,
           }}
         >
-          Hi there! I am <strong className="text-[var(--text-primary)] font-semibold">Chandan Sahu</strong>, a passionate and result-oriented Software Engineer with over 2 years of hands-on experience in full-stack web and application development. Based in Hyderabad, India, I specialize in building performant frontend architectures with React, Next.js, and TypeScript, backed by robust backend services using Node.js, Express, Python, C#, and scalable database systems.
+          Hi there! I am <strong className="text-[var(--text-primary)] font-semibold">Chandan Sahu</strong>, a passionate and result-oriented Software Engineer with over 2.5 years of hands-on experience in full-stack web and application development. Based in Hyderabad, India, I specialize in building performant frontend architectures with React, Next.js, and TypeScript, backed by robust backend services using Nest.js, Express, Python, FastAPI, and scalable database systems.
         </p>
 
         <p
