@@ -162,7 +162,7 @@ const educationData: TimelineItem[] = [
 
 export default function ResumeSection() {
   const resumeDriveUrl =
-    'https://drive.google.com/file/d/1UA7ehHV8f4MQxi_UeVORZBnDKvmFkvcn/view?usp=sharing';
+    'https://drive.google.com/file/d/14zA7ovgB5subkdyPipiMZYvWI4Wal9l9/view?usp=sharing';
 
   return (
     <div className="flex flex-col gap-6 w-full">
